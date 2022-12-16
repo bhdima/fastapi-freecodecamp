@@ -70,6 +70,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: [build]
+    environment:
+      name: production
 
     steps:
       - name: deploying stuff
@@ -78,9 +80,9 @@ jobs:
       - name: deploy to ubuntu server
         uses: appleboy/ssh-action@v0.1.6
         with:
-          HOST: ${{secrets.PROD_HOST}}
-          USERNAME: ${{secrets.PROD_USERNAME}}
-          PASSWORD: ${{secrets.PROD_PASSWORD}}
+          host: ${{secrets.PROD_HOST}}
+          username: ${{secrets.PROD_USERNAME}}
+          password: ${{secrets.PROD_PASSWORD}}
           script: |
             cd app/src
             git pull
