@@ -76,7 +76,7 @@ jobs:
         run: echo "going to deploy some stuff"
       
       - name: deploy to ubuntu server
-        uses: applyboy/ssh-action@master
+        uses: appleboy/ssh-action@v0.1.6
         with:
           host: ${{secrets.PROD_USERNAME}}
           password: ${{secrets.PROD_USERNAME}}
